@@ -1,0 +1,158 @@
+PART 2: SECTION-BY-SECTION BLUEPRINT
+Build the page following this structure exactly. Map the provided copy to these sections.
+
+Global Elements:
+
+Navigation: Clean, sticky header with backdrop-blur.
+
+Logo: Text "Nutri Karol Batista" (Font-bold, Primary Color).
+
+Links: Início, Minha História, Como Funciona, Serviços, Depoimentos, FAQ.
+
+Button: "Agendar Consulta" (Primary Color, Pill shape).
+
+Section 1: Hero (The 'Floating Elements' Layout)
+
+Layout Strategy: Centered text content with "floating" images surrounding it (Top Left, Top Right, Bottom Left, Bottom Right) to mimic the reference image's dispersed look.
+
+Content:
+
+H1: "Baixe sua Glicada e viva sem medo do Diabetes."
+
+Subheadline: "Chega de dietas restritivas..." (Use text-muted color, max-width 600px, centered).
+
+CTA: "Quero Controlar Minha Glicemia" (Large, Primary Color, ArrowRight icon).
+
+Micro-text: "Atendimento especializado para Diabetes Tipo 1, Tipo 2 e Pré-Diabetes."
+
+Visuals (Floating Cards/Images):
+
+Top Left: Image of Karol (Professional Headshot) in a soft shape.
+
+Top Right: Image of a healthy, delicious meal (to show 'freedom').
+
+Bottom Left: Image of a Glucometer showing a good number (Success indicator).
+
+Bottom Right: Image of a happy family/patient (Lifestyle).
+
+Design Note: Use the orange accent color to draw a rough "underline" stroke beneath the word "medo" or "Diabetes" in the H1.
+
+Section 2: About (Personal Authority - Split Layout)
+
+Layout Strategy: 50/50 Split. Text Left, Image Right.
+
+Visual Style: Clean white background.
+
+Content:
+
+Headline: "Eu entendo sua dor, porque eu vivo ela."
+
+Body: "Olá, sou Karol Batista..." (Render as two paragraphs).
+
+Key Highlights (Cards): Below the text, display 3 small horizontal info-cards:
+
+Icon: User (Nutricionista)
+
+Icon: Activity (DM1 há 20+ anos)
+
+Icon: TrendingDown (Foco em Glicada < 7%)
+
+Image: A high-quality photo of Karol holding an insulin pen or sensor, smiling confidently.
+
+Section 3: Method (Comparison - The "Bento" Style)
+
+Layout Strategy: Two large distinct columns/cards.
+
+Visual Style:
+
+Left Card (Traditional): Light Gray background (bg-gray-50), muted text. Title: "O Jeito Tradicional". List items with Red X icons (XCircle).
+
+Right Card (Karol's Method): White background with a Primary Color border or subtle glow. Title: "O Método Karol Batista". List items with Green Check icons (CheckCircle2).
+
+Header: "O Diabetes não precisa ser um fardo."
+
+Section 4: Services (Cards)
+
+Layout Strategy: 2-Column Grid.
+
+Visual Style: Large cards with rounded-[2rem]. Use the "Hover Lift" effect described in Part 3.
+
+Content:
+
+Card 1 (Online): Icon (Laptop/Globe). Title: "Acompanhamento Online". Button: "Saiba Mais...".
+
+Card 2 (Presencial): Icon (MapPin). Title: "Atendimento Presencial". Button: "Agendar Presencial".
+
+Section 5: Testimonials
+
+Layout Strategy: Simple Carousel or 3-Column Grid of text bubbles.
+
+Visual Style: Light accent background (bg-teal-50/30).
+
+Content: Use the "Quem aprendeu a controlar, recomenda" title. Create placeholder testimonials if raw text isn't provided, but use the provided Impact Phrase: "Mais do que dietas, transformamos vidas através do conhecimento."
+
+Section 6: FAQ (Accordion)
+
+Layout Strategy: Single column, centered, max-width 800px.
+
+Component: Shadcn Accordion.
+
+Style: Clean items with borders between them.
+
+Section 7: Final CTA
+
+Layout Strategy: Full width, centered.
+
+Visual Style: Background Primary (Teal), Text White.
+
+Content:
+
+H2: "Sua saúde não pode esperar."
+
+Text: "Cada dia sem controle..."
+
+Button: "AGENDAR MINHA CONSULTA NO WHATSAPP" (White button, Teal text, Pulsing animation).
+
+Footer items: "Site seguro | Atendimento Humanizado" with Lock icon.
+
+Section 8: Footer
+
+Style: Minimalist, white background, gray text.
+
+PART 3: TECHNICAL & INTERACTION GUIDELINES
+Framework: React + Tailwind CSS.
+
+Components: Use Shadcn UI for base components (Buttons, Cards, Accordion, Sheet for mobile menu).
+
+Icons: Use lucide-react.
+
+Responsiveness:
+
+On Mobile (<768px): The "Floating Hero" images should stack into a hidden or simplified grid, prioritizing the H1 and CTA.
+
+Motion & UX (Performance Focused):
+
+Library: motion/react (do not use Framer Motion standard package if heavy, use the lightweight version if possible, or framer-motion with lazy loading).
+
+Implementation:
+
+Wrap the Hero images in <motion.div> with a floating animation: animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}.
+
+Scroll Reveal: Use initial={{ opacity: 0, y: 30 }} and whileInView={{ opacity: 1, y: 0 }} for sections.
+
+Interactions:
+
+Buttons: whileHover={{ scale: 1.05 }}.
+
+Cards: whileHover={{ y: -5 }}.
+
+IMAGE PLACEHOLDERS
+Use https://placehold.co with custom text:
+
+Karol Portrait: https://placehold.co/400x500/e2e8f0/115e59?text=Foto+Karol+Batista
+
+Healthy Food: https://placehold.co/300x300/f0fdf4/15803d?text=Prato+Saudavel
+
+Glucometer: https://placehold.co/300x300/fff7ed/c2410c?text=Glicemia+Controlada
+
+Lifestyle: https://placehold.co/300x300/ecfccb/365314?text=Vida+Social
